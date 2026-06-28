@@ -1,5 +1,26 @@
 import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { TokenService } from '../services/token.service';
+
+const PUBLIC_PATHS = ['/api/auth/login', '/api/auth/register'];
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  return next(req);
+  const tokenService = inject(TokenService);
+
+  if (PUBLIC_PATHS.some(path => req.url.includes(path))) {
+    return next(req);
+  }
+
+  const token = tokenService.getToken();
+  if (!token) {
+    return next(req);
+  }
+
+  const authReq = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return next(authReq);
 };
