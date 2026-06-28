@@ -1,0 +1,73 @@
+<div class="ranking-container container py-5">
+  <div class="text-center mb-5 animate-fade-in-down">
+    <h1 class="display-3 text-gradient mb-3">Ranking Galactico</h1>
+    <p class="text-muted lead">Las especies mas letales del torneo</p>
+  </div>
+
+  <div class="row justify-content-center mb-5 animate-fade-in-up" *ngIf="!loading && ranking.length > 0">
+    <div class="col-12 col-md-4 mb-3">
+      <div class="stat-card">
+        <div class="stat-value">{{ ranking.length }}</div>
+        <div class="stat-label">Especies en competencia</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="stat-card">
+        <div class="stat-value">{{ maxVictorias }}</div>
+        <div class="stat-label">Victorias del campeon</div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-3">
+      <div class="stat-card">
+        <div class="stat-value">{{ ranking[0]?.especie?.nombre || '-' }}</div>
+        <div class="stat-label">Lider actual</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="loading-spinner mx-auto"></div>
+    <p class="text-muted mt-3">Cargando ranking...</p>
+  </div>
+
+  <div *ngIf="!loading && ranking.length === 0" class="galaxy-card text-center py-5 animate-fade-in-up">
+    <h3 class="h5 mb-3">Aun no hay ranking</h3>
+    <p class="text-muted">Las especies necesitan combatir para generar ranking</p>
+  </div>
+
+  <div *ngIf="!loading && ranking.length > 0" class="galaxy-card animate-fade-in-up">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Posicion</th>
+            <th>Especie</th>
+            <th>Nivel de poder</th>
+            <th>Victorias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of ranking">
+            <td>
+              <span [class]="getPosicionClass(entry.posicion)">
+                #{{ entry.posicion }}
+              </span>
+              <span *ngIf="isEmpateEnPrimero(entry.posicion, entry.victorias)" class="badge-rank rank-gold ms-2">
+                EMPATE
+              </span>
+            </td>
+            <td>
+              <strong>{{ entry.especie.nombre }}</strong>
+              <br>
+              <small class="text-muted">{{ entry.especie.habilidadEspecial }}</small>
+            </td>
+            <td>{{ entry.especie.nivelPoder }}</td>
+            <td>
+              <span class="badge-rank rank-gold">{{ entry.victorias }} {{ entry.victorias === 1 ? 'victoria' : 'victorias' }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
