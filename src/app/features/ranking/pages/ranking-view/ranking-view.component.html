@@ -17,12 +17,16 @@
         <div class="stat-label">Victorias del campeon</div>
       </div>
     </div>
-    <div class="col-12 col-md-4 mb-3">
-      <div class="stat-card">
-        <div class="stat-value">{{ ranking[0]?.especie?.nombre || '-' }}</div>
-        <div class="stat-label">Lider actual</div>
+      <div class="col-12 col-md-4 mb-3">
+        <div class="stat-card">
+          @if (ranking.length > 0) {
+            <div class="stat-value">{{ ranking[0].especie.nombre }}</div>
+          } @else {
+            <div class="stat-value">-</div>
+          }
+          <div class="stat-label">Lider actual</div>
+        </div>
       </div>
-    </div>
   </div>
 
   <div *ngIf="loading" class="text-center py-5">
