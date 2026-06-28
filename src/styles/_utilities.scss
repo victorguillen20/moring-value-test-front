@@ -64,7 +64,7 @@
 
 .glass-card {
   @extend .bg-glass;
-  @extend .shadow-md;
+  box-shadow: $shadow-md;
   border-radius: $radius-lg;
   padding: 1.5rem;
   transition: transform $transition-base, box-shadow $transition-base;
