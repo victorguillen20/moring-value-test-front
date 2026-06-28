@@ -1,0 +1,125 @@
+.btn-cosmic {
+  background: $gradient-cosmic;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-md;
+  box-shadow: $shadow-glow;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow-strong;
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btn-glass {
+  background: $gradient-glass;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $color-text-primary;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+
+  &:hover {
+    background: rgba(108, 60, 224, 0.2);
+    border-color: $color-nebula-violet;
+    color: $color-text-primary;
+  }
+}
+
+.galaxy-card {
+  @extend .glass-card;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(108, 60, 224, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.stat-card {
+  @extend .glass-card;
+  text-align: center;
+  padding: 2rem 1.5rem;
+
+  .stat-value {
+    @extend .text-gradient;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: $color-text-muted;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.badge-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  font-weight: 700;
+  border-radius: $radius-pill;
+
+  &.rank-gold {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #0a0e27;
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.6);
+  }
+
+  &.rank-silver {
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    color: #0a0e27;
+  }
+
+  &.rank-bronze {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+  }
+}
+
+.loading-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid $color-border;
+  border-top-color: $color-nebula-violet;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}

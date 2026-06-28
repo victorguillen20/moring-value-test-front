@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import 'styles/variables';
+@import 'styles/theme';
+@import 'styles/animations';
+@import 'styles/utilities';
+@import 'styles/components';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  background: $color-space-black;
+  background-image:
+    radial-gradient(ellipse at top, rgba(108, 60, 224, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: $color-text-primary;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-display;
+  font-weight: 700;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: $color-star-cyan;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-nebula-magenta;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-space-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-nebula-violet;
+  border-radius: $radius-pill;
+
+  &:hover {
+    background: $color-nebula-magenta;
+  }
+}

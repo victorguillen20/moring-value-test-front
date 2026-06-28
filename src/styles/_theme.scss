@@ -1,0 +1,68 @@
+$primary: $color-nebula-violet;
+$secondary: $color-ice-blue;
+$success: $color-success;
+$danger: $color-error;
+$warning: $color-warning;
+$info: $color-info;
+$light: $color-text-primary;
+$dark: $color-space-black;
+
+$body-bg: $color-space-black;
+$body-color: $color-text-primary;
+$body-emphasis-color: $color-text-primary;
+
+$font-family-base: $font-primary;
+$font-family-monospace: $font-mono;
+$headings-font-family: $font-display;
+$headings-font-weight: 700;
+
+$border-radius: $radius-md;
+$border-radius-sm: $radius-sm;
+$border-radius-lg: $radius-lg;
+
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-rounded: true;
+$enable-transitions: true;
+$enable-smooth-scroll: true;
+
+$body-bg-dark: $color-space-black;
+$body-color-dark: $color-text-primary;
+$link-color: $color-star-cyan;
+$link-hover-color: $color-nebula-magenta;
+$link-decoration: none;
+$link-hover-decoration: underline;
+
+$input-bg: $color-space-deep;
+$input-color: $color-text-primary;
+$input-border-color: $color-border;
+$input-focus-bg: $color-space-deep;
+$input-focus-border-color: $color-nebula-violet;
+$input-focus-color: $color-text-primary;
+$input-placeholder-color: $color-text-muted;
+
+$card-bg: $color-surface;
+$card-border-color: $color-border;
+$card-color: $color-text-primary;
+$card-cap-bg: $color-surface-elevated;
+$card-cap-color: $color-text-primary;
+
+$table-bg: transparent;
+$table-color: $color-text-primary;
+$table-border-color: $color-border;
+$table-striped-bg: rgba(108, 60, 224, 0.05);
+$table-hover-bg: rgba(108, 60, 224, 0.1);
+
+$modal-content-bg: $color-surface;
+$modal-content-border-color: $color-border;
+$modal-content-color: $color-text-primary;
+$modal-backdrop-bg: $color-space-black;
+$modal-backdrop-opacity: 0.85;
+
+$navbar-dark-color: $color-text-secondary;
+$navbar-dark-hover-color: $color-text-primary;
+$navbar-dark-active-color: $color-text-primary;
+$navbar-dark-brand-color: $color-text-primary;
+$navbar-dark-brand-hover-color: $color-text-primary;
+
+@import "bootstrap/scss/bootstrap";

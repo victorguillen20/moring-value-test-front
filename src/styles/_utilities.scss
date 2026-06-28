@@ -1,0 +1,76 @@
+.text-gradient {
+  background: $gradient-cosmic;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-aurora {
+  background: $gradient-aurora;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-neon {
+  color: $color-star-cyan;
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
+}
+
+.text-neon-violet {
+  color: $color-nebula-violet;
+  text-shadow: 0 0 10px rgba(108, 60, 224, 0.7);
+}
+
+.bg-glass {
+  background: $gradient-glass;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bg-cosmic {
+  background: $gradient-cosmic;
+}
+
+.bg-nebula {
+  background: $gradient-nebula;
+}
+
+.bg-aurora {
+  background: $gradient-aurora;
+}
+
+.bg-card {
+  background: $gradient-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+.shadow-glow {
+  box-shadow: $shadow-glow;
+}
+
+.shadow-glow-strong {
+  box-shadow: $shadow-glow-strong;
+}
+
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $color-nebula-violet, transparent);
+}
+
+.glass-card {
+  @extend .bg-glass;
+  @extend .shadow-md;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}

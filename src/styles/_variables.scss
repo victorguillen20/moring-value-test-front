@@ -1,0 +1,65 @@
+$color-space-black: #0a0e27;
+$color-space-deep: #131838;
+$color-space-purple: #1a1a4e;
+$color-nebula-violet: #6c3ce0;
+$color-nebula-purple: #8b5cf6;
+$color-nebula-magenta: #c026d3;
+$color-star-yellow: #fbbf24;
+$color-star-cyan: #22d3ee;
+$color-energy-green: #10b981;
+$color-blood-red: #ef4444;
+$color-plasma-orange: #f97316;
+$color-ice-blue: #60a5fa;
+$color-text-primary: #f1f5f9;
+$color-text-secondary: #cbd5e1;
+$color-text-muted: #94a3b8;
+$color-surface: #1e1b4b;
+$color-surface-elevated: #2d2a5f;
+$color-border: #312e81;
+$color-border-light: #4338ca;
+$color-success: #10b981;
+$color-warning: #f59e0b;
+$color-error: #ef4444;
+$color-info: #3b82f6;
+
+$gradient-cosmic: linear-gradient(135deg, #6c3ce0 0%, #c026d3 50%, #f97316 100%);
+$gradient-nebula: linear-gradient(135deg, #1a1a4e 0%, #6c3ce0 50%, #22d3ee 100%);
+$gradient-aurora: linear-gradient(135deg, #10b981 0%, #22d3ee 50%, #8b5cf6 100%);
+$gradient-card: linear-gradient(145deg, rgba(108, 60, 224, 0.15) 0%, rgba(30, 27, 75, 0.5) 100%);
+$gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.45);
+$shadow-glow: 0 0 20px rgba(108, 60, 224, 0.5);
+$shadow-glow-strong: 0 0 40px rgba(192, 38, 211, 0.7);
+
+$radius-sm: 0.375rem;
+$radius-md: 0.75rem;
+$radius-lg: 1.25rem;
+$radius-xl: 2rem;
+$radius-pill: 50rem;
+
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-display: 'Space Grotesk', 'Inter', sans-serif;
+$font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-modal: 300;
+$z-toast: 400;
