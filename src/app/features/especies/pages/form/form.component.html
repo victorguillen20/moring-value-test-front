@@ -1,0 +1,65 @@
+<div class="form-container container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="text-center mb-4 animate-fade-in-down">
+        <h1 class="display-5 text-gradient mb-2">Nueva Especie</h1>
+        <p class="text-muted">Registra una nueva especie para el torneo</p>
+      </div>
+
+      <div class="galaxy-card animate-fade-in-up">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              class="form-control"
+              formControlName="nombre"
+              placeholder="Andromeda"
+              autocomplete="off"
+            />
+            <small class="text-muted">1-50 caracteres</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="nivelPoder" class="form-label">Nivel de poder</label>
+            <input
+              type="number"
+              id="nivelPoder"
+              class="form-control"
+              formControlName="nivelPoder"
+              min="1"
+              max="1000"
+            />
+            <small class="text-muted">Entre 1 y 1000</small>
+          </div>
+
+          <div class="mb-4">
+            <label for="habilidadEspecial" class="form-label">Habilidad especial</label>
+            <textarea
+              id="habilidadEspecial"
+              class="form-control"
+              formControlName="habilidadEspecial"
+              rows="3"
+              placeholder="Vuelo Rapido"
+              maxlength="100"
+            ></textarea>
+            <small class="text-muted">1-100 caracteres</small>
+          </div>
+
+          <div class="d-flex gap-2">
+            <a routerLink="/especies" class="btn btn-glass flex-fill">Cancelar</a>
+            <button
+              type="submit"
+              class="btn btn-cosmic flex-fill"
+              [disabled]="loading"
+            >
+              <span *ngIf="loading" class="loading-spinner me-2"></span>
+              {{ loading ? 'Registrando...' : 'Registrar especie' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
