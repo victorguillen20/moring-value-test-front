@@ -1,0 +1,24 @@
+.manual-container {
+  min-height: 100vh;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+}
+
+.form-check-input:checked {
+  background-color: #6c3ce0;
+  border-color: #6c3ce0;
+}
+
+.form-check-label {
+  color: var(--text-primary);
+}
+
+.alert {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  color: var(--text-primary);
+  border-radius: 0.75rem;
+}

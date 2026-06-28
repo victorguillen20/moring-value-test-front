@@ -1,0 +1,98 @@
+<div class="manual-container container py-5">
+  <div class="text-center mb-4 animate-fade-in-down">
+    <h1 class="display-4 text-gradient mb-2">Combate Manual</h1>
+    <p class="text-muted">Elige dos especies y enfrentalas en combate</p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div class="galaxy-card animate-fade-in-up">
+        <form [formGroup]="form" (ngSubmit)="iniciarCombate()">
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6">
+              <label for="especie1" class="form-label">Especie 1</label>
+              <select
+                id="especie1"
+                class="form-select"
+                formControlName="especie1Id"
+              >
+                <option [ngValue]="null" disabled>Selecciona una especie</option>
+                <option *ngFor="let especie of especies" [ngValue]="especie.id">
+                  {{ especie.nombre }} (nivel {{ especie.nivelPoder }})
+                </option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="especie2" class="form-label">Especie 2</label>
+              <select
+                id="especie2"
+                class="form-select"
+                formControlName="especie2Id"
+              >
+                <option [ngValue]="null" disabled>Selecciona una especie</option>
+                <option *ngFor="let especie of especies" [ngValue]="especie.id">
+                  {{ especie.nombre }} (nivel {{ especie.nivelPoder }})
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div *ngIf="mismaEspecie" class="form-check mb-3 animate-fade-in">
+            <input
+              type="checkbox"
+              id="esDesempate"
+              class="form-check-input"
+              formControlName="esDesempate"
+            />
+            <label for="esDesempate" class="form-check-label">
+              <span class="badge-rank rank-gold me-2">EMPATE</span>
+              Es combate de desempate (requiere que la especie este en primer puesto empatado)
+            </label>
+          </div>
+
+          <div *ngIf="especies.length < 2" class="alert alert-warning">
+            Necesitas al menos 2 especies registradas para iniciar un combate.
+            <a routerLink="/especies/nueva" class="alert-link ms-2">Crear especie</a>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-cosmic w-100"
+            [disabled]="!puedeCombatir"
+          >
+            <span *ngIf="fighting" class="loading-spinner me-2"></span>
+            {{ fighting ? 'Combatiendo...' : 'Iniciar Combate' }}
+          </button>
+        </form>
+      </div>
+
+      <div *ngIf="resultado" class="galaxy-card mt-4 animate-fade-in-up">
+        <h2 class="h3 text-center text-gradient mb-4">Resultado del Combate</h2>
+
+        <div class="row align-items-center">
+          <div class="col-5 text-center">
+            <h3 class="h5">{{ resultado.especie1.nombre }}</h3>
+            <p class="text-muted">Nivel efectivo: {{ resultado.nivelEfectivoEspecie1 }}</p>
+            <p class="text-muted small">Modificador: +{{ resultado.modificadorEspecie1 }}</p>
+          </div>
+
+          <div class="col-2 text-center">
+            <span class="display-4 text-gradient">VS</span>
+          </div>
+
+          <div class="col-5 text-center">
+            <h3 class="h5">{{ resultado.especie2.nombre }}</h3>
+            <p class="text-muted">Nivel efectivo: {{ resultado.nivelEfectivoEspecie2 }}</p>
+            <p class="text-muted small">Modificador: +{{ resultado.modificadorEspecie2 }}</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-4 pt-4" style="border-top: 1px solid var(--border)">
+          <p class="text-muted small mb-2">GANADOR</p>
+          <h2 class="display-5 text-gradient mb-0">{{ resultado.ganador.nombre }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
