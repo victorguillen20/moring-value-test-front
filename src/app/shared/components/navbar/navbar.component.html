@@ -1,0 +1,23 @@
+<nav class="navbar navbar-cosmic">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">
+      <span class="text-gradient">Torneo Galactico</span>
+    </a>
+
+    <div class="navbar-nav">
+      <ng-container *ngIf="!isAuthenticated">
+        <a routerLink="/auth/login" routerLinkActive="active" class="nav-link">Iniciar sesion</a>
+        <a routerLink="/auth/register" routerLinkActive="active" class="nav-link">Registrarse</a>
+      </ng-container>
+
+      <ng-container *ngIf="isAuthenticated">
+        <a routerLink="/ranking" routerLinkActive="active" class="nav-link">Ranking</a>
+        <a routerLink="/especies" routerLinkActive="active" class="nav-link">Especies</a>
+        <a routerLink="/combates" routerLinkActive="active" class="nav-link">Combates</a>
+        <a routerLink="/combates/aleatorio" class="nav-link">Aleatorio</a>
+        <span class="navbar-user">{{ username }}</span>
+        <button type="button" class="btn btn-glass btn-sm" (click)="logout()">Salir</button>
+      </ng-container>
+    </div>
+  </div>
+</nav>

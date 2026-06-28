@@ -1,0 +1,48 @@
+.navbar-cosmic {
+  background: rgba(10, 14, 39, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border, #312e81);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    color: var(--text-secondary, #cbd5e1);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: var(--star-cyan, #22d3ee);
+    }
+  }
+
+  .navbar-user {
+    color: var(--text-primary, #f1f5f9);
+    font-weight: 500;
+    padding: 0 0.5rem;
+  }
+}
