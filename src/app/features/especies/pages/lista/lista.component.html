@@ -1,0 +1,55 @@
+<div class="lista-container container py-5">
+  <div class="row mb-4 align-items-center animate-fade-in-down">
+    <div class="col">
+      <h1 class="display-5 text-gradient mb-2">Catalogo de Especies</h1>
+      <p class="text-muted">Especies registradas en el Torneo Galactico</p>
+    </div>
+    <div class="col-auto">
+      <a routerLink="/especies/nueva" class="btn btn-cosmic">
+        <span class="me-2">+</span> Nueva especie
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="loading-spinner mx-auto"></div>
+    <p class="text-muted mt-3">Cargando especies...</p>
+  </div>
+
+  <div *ngIf="!loading && especies.length === 0" class="galaxy-card text-center py-5 animate-fade-in-up">
+    <h3 class="h5 mb-3">No hay especies registradas</h3>
+    <p class="text-muted">Crea la primera especie para empezar el torneo</p>
+    <a routerLink="/especies/nueva" class="btn btn-cosmic mt-3">Crear primera especie</a>
+  </div>
+
+  <div *ngIf="!loading && especies.length > 0" class="galaxy-card animate-fade-in-up">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Nivel de poder</th>
+            <th>Habilidad especial</th>
+            <th>Fecha de registro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let especie of especies">
+            <td>
+              <strong>{{ especie.nombre }}</strong>
+            </td>
+            <td>
+              <span [class]="getNivelPoderClass(especie.nivelPoder)">
+                {{ especie.nivelPoder }}
+              </span>
+            </td>
+            <td>{{ especie.habilidadEspecial }}</td>
+            <td class="text-muted">
+              {{ especie.fechaCreacion | date:'dd/MM/yyyy HH:mm' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

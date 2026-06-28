@@ -1,0 +1,34 @@
+.lista-container {
+  min-height: 100vh;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+}
+
+table {
+  border-color: var(--border) !important;
+
+  th {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    border-bottom: 2px solid var(--border) !important;
+  }
+
+  td {
+    border-color: var(--border) !important;
+    vertical-align: middle;
+  }
+
+  tbody tr {
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(108, 60, 224, 0.08) !important;
+    }
+  }
+}
