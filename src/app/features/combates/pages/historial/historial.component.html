@@ -1,0 +1,54 @@
+<div class="historial-container container py-5">
+  <div class="row mb-4 align-items-center animate-fade-in-down">
+    <div class="col">
+      <h1 class="display-5 text-gradient mb-2">Historial de Combates</h1>
+      <p class="text-muted">Todos los combates registrados en el torneo</p>
+    </div>
+    <div class="col-auto">
+      <a routerLink="/combates" class="btn btn-cosmic me-2">Manual</a>
+      <a routerLink="/combates/aleatorio" class="btn btn-glass">Aleatorio</a>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="loading-spinner mx-auto"></div>
+    <p class="text-muted mt-3">Cargando historial...</p>
+  </div>
+
+  <div *ngIf="!loading && combates.length === 0" class="galaxy-card text-center py-5 animate-fade-in-up">
+    <h3 class="h5 mb-3">Aun no hay combates</h3>
+    <p class="text-muted">Inicia el primer combate para generar historial</p>
+    <a routerLink="/combates" class="btn btn-cosmic mt-3">Iniciar combate</a>
+  </div>
+
+  <div *ngIf="!loading && combates.length > 0" class="galaxy-card animate-fade-in-up">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Especie 1</th>
+            <th>Especie 2</th>
+            <th>Ganador</th>
+            <th>Nivel efectivo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let combate of combates">
+            <td class="text-muted">
+              {{ combate.fecha | date:'dd/MM/yyyy HH:mm' }}
+            </td>
+            <td>{{ combate.especie1.nombre }}</td>
+            <td>{{ combate.especie2.nombre }}</td>
+            <td>
+              <strong class="text-gradient">{{ combate.ganador.nombre }}</strong>
+            </td>
+            <td>
+              <span class="text-muted small">{{ combate.nivelEfectivoEspecie1 }} vs {{ combate.nivelEfectivoEspecie2 }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
