@@ -1,8 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Combate } from '../../../../models/combate.model';
+import { CombateApi } from '../../../../core/api/combate.api';
+import { ToastService } from '../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-aleatorio',
   standalone: true,
-  template: '<div>Combate Aleatorio (a implementar)</div>'
+  imports: [CommonModule, RouterLink],
+  templateUrl: './aleatorio.component.html',
+  styleUrl: './aleatorio.component.scss'
 })
-export class AleatorioComponent {}
+export class AleatorioComponent {
+
+  private combateApi = inject(CombateApi);
+  private toastService = inject(ToastService);
+
+  resultado: Combate | null = null;
+  loading = false;
+
+  iniciarCombate(): void {
+    this.loading = true;
+    this.resultado = null;
+    this.combateApi.iniciarAleatorio().subscribe({
+      next: (combate) => {
+        this.loading = false;
+        this.resultado = combate;
+        this.toastService.success('Combate aleatorio finalizado');
+      },
+      error: () => {
+        this.loading = false;
+      }
+    });
+  }
+}

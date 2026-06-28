@@ -1,0 +1,55 @@
+<div class="aleatorio-container container py-5">
+  <div class="text-center mb-5 animate-fade-in-down">
+    <h1 class="display-3 text-gradient mb-3">Combate Aleatorio</h1>
+    <p class="text-muted lead">Dos especies elegidas al azar se enfrentan en combate</p>
+  </div>
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 col-md-8 col-lg-6 text-center">
+      <button
+        type="button"
+        class="btn btn-cosmic btn-luchar"
+        (click)="iniciarCombate()"
+        [disabled]="loading"
+      >
+        <span *ngIf="loading" class="loading-spinner me-2"></span>
+        <span class="btn-icon">⚔️</span>
+        <span class="btn-text">{{ loading ? 'Combatiendo...' : 'Luchar' }}</span>
+      </button>
+      <p class="text-muted mt-3 mb-0" *ngIf="!loading">
+        Presiona para elegir dos especies al azar
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="resultado" class="row justify-content-center animate-fade-in-up">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="galaxy-card text-center">
+        <h2 class="h3 text-gradient mb-4">Combate Finalizado</h2>
+
+        <div class="versus-container mb-4">
+          <div class="versus-especie">
+            <h3 class="h4 mb-2">{{ resultado.especie1.nombre }}</h3>
+            <p class="text-muted small mb-1">Nivel de poder: {{ resultado.especie1.nivelPoder }}</p>
+            <p class="text-muted small mb-0">Nivel efectivo: {{ resultado.nivelEfectivoEspecie1 }}</p>
+          </div>
+
+          <div class="versus-divider">
+            <span class="display-4 text-gradient">⚔️</span>
+          </div>
+
+          <div class="versus-especie">
+            <h3 class="h4 mb-2">{{ resultado.especie2.nombre }}</h3>
+            <p class="text-muted small mb-1">Nivel de poder: {{ resultado.especie2.nivelPoder }}</p>
+            <p class="text-muted small mb-0">Nivel efectivo: {{ resultado.nivelEfectivoEspecie2 }}</p>
+          </div>
+        </div>
+
+        <div class="ganador-container pt-4" style="border-top: 1px solid var(--border)">
+          <p class="text-muted small mb-2">GANADOR</p>
+          <h2 class="display-5 text-gradient mb-0 animate-pulse">{{ resultado.ganador.nombre }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

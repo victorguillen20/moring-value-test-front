@@ -1,0 +1,50 @@
+.aleatorio-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+  opacity: 0.8;
+}
+
+.btn-luchar {
+  font-size: 1.5rem;
+  padding: 2rem 4rem;
+  border-radius: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.btn-icon {
+  font-size: 2rem;
+}
+
+.btn-text {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.versus-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.versus-especie {
+  flex: 1;
+  padding: 1rem;
+}
+
+.versus-divider {
+  flex-shrink: 0;
+}
+
+.ganador-container {
+  margin-top: 2rem;
+}
