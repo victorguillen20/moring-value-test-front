@@ -1,6 +1,6 @@
 export interface AuthResponse {
-  token: string | null;
-  tipo: string | null;
+  token: string;
+  tipo: string;
   username: string;
   expiresIn: number;
 }
