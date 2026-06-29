@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Especie } from '../../../../models/especie.model';
 import { Combate } from '../../../../models/combate.model';
 import { EspecieApi } from '../../../../core/api/especie.api';
@@ -82,8 +83,10 @@ export class ManualComponent implements OnInit {
         this.resultado = combate;
         this.toastService.success('Combate finalizado');
       },
-      error: () => {
+      error: (error: HttpErrorResponse) => {
         this.fighting = false;
+        const message = error.error?.message ?? 'No se pudo iniciar el combate';
+        this.toastService.warning(message, 'Error');
       }
     });
   }
