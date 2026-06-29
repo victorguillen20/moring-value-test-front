@@ -1,16 +1,25 @@
 .navbar-cosmic {
-  background: rgba(10, 14, 39, 0.85);
+  background: rgba(10, 14, 39, 0.85) !important;
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border, #312e81);
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  > .container,
+  > div,
+  > [class*="container"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     gap: 2rem;
   }
 
@@ -18,31 +27,40 @@
     font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
-    color: white;
+    color: white !important;
+    flex-shrink: 0;
+    white-space: nowrap;
+    display: inline-block;
   }
 
   .navbar-nav {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
     gap: 1.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap !important;
+    flex-shrink: 0;
   }
 
   .nav-link {
-    color: var(--text-secondary, #cbd5e1);
-    text-decoration: none;
+    color: var(--text-secondary, #cbd5e1) !important;
+    text-decoration: none !important;
     font-weight: 500;
     transition: color 0.2s ease;
+    white-space: nowrap;
+    display: inline-block;
 
     &:hover,
     &.active {
-      color: var(--star-cyan, #22d3ee);
+      color: var(--star-cyan, #22d3ee) !important;
     }
   }
 
   .navbar-user {
-    color: var(--text-primary, #f1f5f9);
+    color: var(--text-primary, #f1f5f9) !important;
     font-weight: 500;
     padding: 0 0.5rem;
+    white-space: nowrap;
+    display: inline-block;
   }
 }
